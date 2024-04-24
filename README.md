@@ -64,3 +64,10 @@ func main() {
 	fmt.Println("5. close minibitcask.")
 }
 ```
+
+
+麻雀虽小，展示下了后端编程的脚手架
+1. 测试用例
+2. API定义：美中不足没有抽象接口
+3. 监控
+4. 日志

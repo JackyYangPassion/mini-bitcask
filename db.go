@@ -133,7 +133,7 @@ func (db *MiniBitcask) Put(key []byte, value []byte) (err error) {
 	err = db.dbFile.Write(entry)
 
 	// 写到内存
-	db.indexes[string(key)] = offset
+	db.indexes[string(key)] = offset //内存中记录 Entry 所在文件的索引位置
 	return
 }
 
@@ -165,7 +165,7 @@ func (db *MiniBitcask) Get(key []byte) (val []byte, err error) {
 
 	// 从磁盘中读取数据
 	var e *Entry
-	e, err = db.dbFile.Read(offset)
+	e, err = db.dbFile.Read(offset) //直接从索引位置获取数据
 	if err != nil && err != io.EOF {
 		return
 	}
